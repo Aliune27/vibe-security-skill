@@ -121,8 +121,10 @@ def chercher_secrets(ligne):
     for nom, gravite, motif in SECRETS:
         for m in re.finditer(motif, ligne):
             valeur = m.group(1) if m.groups() else m.group(0)
-            if nom == "Secret écrit en dur" and (FAUX.search(valeur) or FAUX.search(ligne) or len(set(valeur)) < 5):
-                continue
+            if nom == "Secret écrit en dur" and (
+                    FAUX.search(valeur) or FAUX.search(ligne) or len(set(valeur)) < 5
+                    or not (re.search(r"\d", valeur) and re.search(r"[A-Za-z]", valeur))):
+                continue  # un vrai secret mélange lettres et chiffres ; écarte libellés et traductions
             trouves.append((nom, gravite, masquer(valeur)))
             break
     for m in JWT.finditer(ligne):
