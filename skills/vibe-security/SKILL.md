@@ -55,8 +55,9 @@ même supprimé.
 
 ### Phase 2 — Audit complet
 Passe les 43 contrôles ci-dessous un par un. Pour chacun, note : ✅ OK · ❌ Faille · ➖ Non
-applicable · ❓ Non vérifiable. Le détail (comment vérifier, comment corriger) est dans
-`references/controles.md` ; les particularités par technologie dans `references/stacks.md`.
+applicable · ❓ Non vérifiable. Si ces fichiers sont présents, le détail (comment vérifier,
+comment corriger) est dans `references/controles.md` et les particularités par technologie
+dans `references/stacks.md` ; sinon, la liste ci-dessous suffit.
 
 ### Phase 3 — Priorisation
 - **Critique** : exploitable sans compte ou donnant accès aux données de tous (secret exposé,
